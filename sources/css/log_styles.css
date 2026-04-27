@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("sources/fonts/Roboto-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  background:
+    linear-gradient(to right, transparent, black),
+    url("../img/background.jpg") no-repeat center / cover;
+  font-family: "Roboto-Bold", sans-serif;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span {
+  position: absolute;
+  bottom: 1%;
+  color: white;
+  font-weight: bold;
+}
+
+.login_container {
+  width: 27vw;
+  height: 60vh;
+  background-color: rgba(247, 243, 238, 0.89);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 25px;
+  box-shadow: 2px 0px 10px black;
+}
+
+#logo_img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40%;
+  height: auto;
+}
+
+h1 {
+  position: absolute;
+  top: 20%;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(173, 20, 20);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.input_field {
+  position: relative;
+  left: 10%;
+  border: 0;
+  background: transparent;
+  border-bottom: 2px solid gray;
+  padding: 8px 0;
+  font-size: 1rem;
+  transition: border-color 0.4s ease;
+  width: 80%;
+}
+
+.input_field:focus {
+  outline: none;
+  border-bottom-color: rgb(173, 20, 20);
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.login_btn {
+  position: absolute;
+  bottom: 50px;
+  left: 5%;
+  margin-top: 10px;
+  height: 10%;
+  width: 90%;
+  background-color: rgb(173, 20, 20);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 100%;
+  transition: 0.3s;
+}
+
+.login_btn:hover {
+  transform: scale(1.01);
+  box-shadow: 1px 1px 10px black;
+}
+
+#show_password {
+  position: fixed;
+  bottom: 45%;
+}
+
+#check_icon {
+  cursor: pointer;
+  color: grey;
+  font-size: 24px;
+}
+
+#show_password:checked + .check-icon {
+  color: red; /* Color cuando está activo */
+}
+
+a {
+  position: absolute;
+  text-decoration: none;
+  font-weight: bold;
+  color: grey;
+  bottom: 5%;
+  left: 25%;
+  white-space: nowrap;
+}
