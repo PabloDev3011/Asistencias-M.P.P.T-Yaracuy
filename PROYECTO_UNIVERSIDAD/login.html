@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="sources/css/log_styles.css" />
+    <title>Inicio de sesión MMPTY</title>
+  </head>
+
+  <body>
+    <main class="login_container">
+      <img src="sources/img/MPP_Transporte-v5.jpg" alt="logo" id="logo_img" />
+      <h1>Inicio de sesión</h1>
+      <div class="form">
+        <form action="pendientes.html" name="login">
+          <div class="user">
+            <input
+              placeholder="Usuario"
+              type="text"
+              maxlength="20"
+              name="usuario"
+              class="input_field"
+              id="usuario_input"
+              required
+            />
+          </div>
+          <div class="password">
+            <input
+              placeholder="Clave"
+              type="password"
+              name="clave"
+              class="input_field"
+              maxlength="30"
+              id="clave_input"
+              required
+            />
+            <input
+              type="checkbox"
+              onclick="clave_input.type = this.checked ? 'text' : 'password'"
+              id="show_password"
+            />
+            <a href="">¿Olvidó su contraseña?</a>
+          </div>
+          <input
+            type="submit"
+            value="Entrar"
+            class="login_btn"
+            id="password_input"
+          />
+          <label for="password_input" class="check_icon">
+            <i class="bi bi-eye-fill"></i>
+          </label>
+        </form>
+      </div>
+    </main>
+    <span>v1.0 | Proyecto MMPT © 2026</span>
+  </body>
+</html>
