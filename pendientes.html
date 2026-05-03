@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendientes</title>
+    <link rel="stylesheet" href="sources/css/pen_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+  <div class="top">
+    <div class="search">
+      <select name="type-solicited" id="type-solicited">
+        <option value="" selected>Tipo de solicitud</option>
+        <option value="permiso">Persmiso</option>
+        <option value="vacacion">Vacaciones</option>
+      </select>
+      <input type="search" class="searcher" />
+        </div>
+    <input type="checkbox" class="menu-toggle top" id="show-menu"/>
+    <label for="show-menu">
+      <i class="fa-solid fa-bars" id="bars"></i>
+    </label>
+    <nav class="menu">
+      <ul>
+        <li><a href="#">🏠  Inicio</a></li>
+        <li><a href="#">📶  Reportes</a></li>
+        <li><a href="#">🧰  Gestión</a></li>
+        <li><a href="#">⚙️  pendientes</a></li>
+        </ul>
+        <a id="log-out" href="index.html">🚪 Salir</a>
+      </nav>
+</div>
+
+    </div>
+    <div class="head"><h1>PANEL DE GESTION DE PEDIENTES</h1></div>
+    <label for="head">Solicitud de asistencias, permisos y vacaciones</label>
+    <div class="permisse">
+      <label for="permisse">Solicitud de permisos</label>
+      <span>nuevas</span>
+      <span>pendientes</span>
+      <button>Crear nueva solicitud</button>
+    </div>
+    <div class="vacation">
+      <label for="vacation">Solicitud en espera</label
+      ><label for="vacation">Dìas totales solicitados</label
+      ><label for="vacation">Dias disponibles totales:</label>
+    </div>
+    <div class="table">
+      <table class="solicit-table">
+        <label for="solicit-table">Tabal de solicitudes pendientes</label>
+
+        <thead>
+          <tr>
+            <th>folio</th>
+            <th>Empleado(ID/Nombre)</th>
+            <th>Tipo de solicitud</th>
+            <th>Fecha solicitada</th>
+            <th>Dias/horas</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

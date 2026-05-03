@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  background:
+    linear-gradient(to right, transparent, black),
+    url("../img/background.jpg") no-repeat center / cover;
+  font-family: "Roboto-Bold", sans-serif;
+  color: white;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-toggle {
+  background-color: transparent;
+  color: white;
+  outline: none;
+  position: fixed;
+  top: 0vh;
+  left: 0vw;
+  display: none;
+}
+
+.top {
+  background-color: #302a2abb;
+  position: fixed;
+  height: 10%;
+  width: 100%;
+  top: 0;
+}
+
+#bars {
+  position: fixed;
+  top: 3vh;
+  left: 2vw;
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 1;
+}
+
+ul {
+  list-style-type: none;
+}
+.menu {
+  position: fixed;
+  font-size: 17px;
+  background-color: #302a2abb;
+  height: 100%;
+  width: 17%;
+  left: -250px;
+  transition: 0.3s;
+  top: 10%;
+}
+.menu a {
+  outline-style: none;
+  text-decoration: none;
+  color: aliceblue;
+  line-height: 2;
+  display: block;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.menu-toggle:checked ~ .menu {
+  left: 0;
+}
+
+a:hover {
+  transition: 0.3s;
+  background-color: #ad1414;
+  font-size: 20px;
+}
+
+#log-out {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+}
+
+#logo {
+  position: absolute;
+  bottom: 0%;
+  left: 50vw;
+  width: 15%;
+
+  height: 100%;
+}
+
+.search {
+  position: fixed;
+  right: 0;
+}

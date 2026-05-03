@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="sources/css/log_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Inicio de sesión MMPTY</title>
+  </head>
+
+  <body>
+    <main class="login_container">
+      <img src="sources/img/MPP_Transporte-v5.jpg" alt="logo" id="logo_img" />
+      <h1>Inicio de sesión</h1>
+
+      <div class="form">
+        <form action="pendientes.html" name="login">
+          <div class="user">
+            <i class="fa-regular fa-user"></i>
+            <input
+              placeholder="Usuario"
+              type="text"
+              maxlength="20"
+              name="usuario"
+              class="input_field"
+              id="usuario_input"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="password">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              placeholder="Clave"
+              type="password"
+              name="clave"
+              class="input_field"
+              maxlength="30"
+              id="clave_input"
+              required
+            />
+
+            <input
+              type="checkbox"
+              onclick="clave_input.type = this.checked ? 'text' : 'password'"
+              id="show_password"
+            />
+
+            <label for="show_password" class="check_icon">
+              <i class="fa-regular fa-eye-slash" id="eye-closed"></i>
+              <i class="fa-regular fa-eye" id="eye-open"></i>
+            </label>
+
+            <a href="#" class="forgot_link">¿Olvidó su contraseña?</a>
+          </div>
+
+          <input type="submit" value="Entrar" class="login_btn" />
+        </form>
+      </div>
+    </main>
+    <span>v1.0 | Proyecto MMPT © 2026</span>
+  </body>
+</html>
