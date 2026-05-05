@@ -39,7 +39,7 @@ span {
 
 .login_container {
   width: 80%; /* Por defecto en móviles */
-  max-width: 400px; /* Tamaño máximo para escritorio */
+  max-width: 60%; /* Tamaño máximo para escritorio */
   height: auto; /* Que crezca según el contenido */
   min-height: 400px;
   background-color: rgba(247, 243, 238, 0.89);
