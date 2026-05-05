@@ -336,3 +336,16 @@ tr:hover {
 .table::-webkit-scrollbar-thumb:hover {
   background: #8a0f0f;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(1px);
+  cursor: default;
+  z-index: 200;
+  visibility: hidden;
+}

@@ -20,11 +20,12 @@ html {
 }
 
 body {
-  position: relative;
+  margin: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -37,8 +38,10 @@ span {
 }
 
 .login_container {
-  width: 27vw;
-  height: 60vh;
+  width: 80%; /* Por defecto en móviles */
+  max-width: 400px; /* Tamaño máximo para escritorio */
+  height: auto; /* Que crezca según el contenido */
+  min-height: 400px;
   background-color: rgba(247, 243, 238, 0.89);
   display: flex;
   flex-direction: column;
@@ -147,4 +150,25 @@ a {
   bottom: 4%;
   left: 25%;
   white-space: nowrap;
+}
+
+/* --- MEDIA QUERIES (Escritorio) --- */
+@media (min-width: 1024px) {
+  .login_container {
+    width: 27vw;
+  }
+}
+
+/* --- MEDIA QUERIES (Móviles pequeños) --- */
+@media (max-height: 600px) {
+  .login_container {
+    min-height: 400px;
+    padding: 20px;
+  }
+  #logo_img {
+    width: 100px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
 }
