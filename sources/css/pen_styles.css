@@ -97,11 +97,11 @@ a:hover {
 }
 
 .search {
-  position: absolute; /* Cambiado de fixed a absolute para coherencia con tu layout */
+  position: absolute;
   bottom: 6.5%;
   left: 1%;
   width: 60%;
-  height: 7%; /* Altura fija para que no tape la tabla */
+  height: 7%;
   background-color: rgba(250, 250, 250, 0.95);
   border-radius: 10px;
   display: flex;

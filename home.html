@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Inicio</title>
+    <link rel="stylesheet" href="sources/css/home_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="top">
+      <input type="checkbox" class="menu-toggle top" id="show-menu" />
+      <label for="show-menu">
+        <i class="fa-solid fa-bars" id="bars"></i>
+      </label>
+      <nav class="menu">
+        <ul>
+          <li><a href="#">🏠 Inicio</a></li>
+          <li><a href="panel_reportes.html">📶 Reportes</a></li>
+          <li><a href="panel_gestion_personal.html">🧰 Gestión</a></li>
+          <li><a href="pendientes.html">⚙️ pendientes</a></li>
+        </ul>
+        <a id="log-out" href="index.html">🚪 Salir</a>
+      </nav>
+    </div>
+    <div class="head">
+      <h1>Panel principal</h1>
+      <label for="head">Resumen de actividad</label>
+    </div>
+    <div class="clock-container">
+      <span>Registro de hoy</span>
+      <div class="clock">00:00:00</div>
+
+      <a href="#registro-entrada" class="btn-entrada">Registrar Entrada</a>
+
+      <a href="#registro-salida" class="btn-salida">Registrar Salida</a>
+    </div>
+    <div class="asistence">
+      <span>Asistencias recientes </span>
+      <div class="table">
+        <table>
+          <thead>
+            <th>Fecha</th>
+            <th>Entrada</th>
+            <th>salida</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="weck-asistence">
+      <label for="perfomance">Rendimiento de esta semana:</label>
+      <progress id="perfomance" value="70" max="100"></progress>
+    </div>
+
+    <div id="registro-entrada" class="modal-master">
+      <a href="#" class="modal-backdrop"></a>
+      <div class="modal-box">
+        <a href="#" class="close-x">x</a>
+        <div class="modal-header">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <h2>Registro de Entrada</h2>
+        </div>
+        <form action="procesar_asistencia.php" method="POST">
+          <div class="input-group">
+            <label>Cédula de Identidad</label>
+            <input
+              type="number"
+              name="cedula"
+              placeholder="Ej: 27123456"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label>Nombre y Apellido</label>
+            <input
+              type="text"
+              name="nombre_completo"
+              placeholder="Nombre del trabajador"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label>Carga / Departamento</label>
+            <select name="carga" required>
+              <option value="" disabled selected>Seleccione área...</option>
+              <option value="administracion">Administración</option>
+              <option value="mantenimiento">Mantenimiento</option>
+              <option value="transporte">Transporte</option>
+              <option value="sistemas">Sistemas</option>
+            </select>
+          </div>
+          <button type="submit" class="confirm-btn in">
+            Confirmar Entrada
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Estructura del Maestro de Salida -->
+    <div id="registro-salida" class="modal-master">
+      <a href="#" class="modal-backdrop"></a>
+      <div class="modal-box out">
+        <a href="#" class="close-x">&times;</a>
+        <div class="modal-header">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <h2>Finalizar Jornada</h2>
+        </div>
+        <form action="procesar_salida.php" method="POST">
+          <p style="text-align: center; color: #666; margin-bottom: 20px">
+            Ingrese su cédula para registrar la hora de salida oficial.
+          </p>
+          <div class="input-group">
+            <label>Cédula de Identidad</label>
+            <input
+              type="number"
+              name="cedula"
+              placeholder="Ingrese CI para marcar salida"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label>Observaciones (Opcional)</label>
+            <textarea
+              name="nota"
+              style="border-radius: 8px; padding: 10px; border: 1px solid #ccc"
+              placeholder="Alguna novedad en el turno..."
+            ></textarea>
+          </div>
+          <button type="submit" class="confirm-btn out">
+            Confirmar Salida
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

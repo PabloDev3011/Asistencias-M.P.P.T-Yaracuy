@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Panel de Reportes</title>
+
+    <link rel="stylesheet" href="sources/css/pen_styles.css" />
+
+    <!-- ICONOS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- TOPBAR -->
+    <header class="top">
+      <label for="menu-toggle" id="bars">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+    </header>
+
+    <!-- BOTON MENU -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+    <!-- SIDEBAR -->
+    <nav class="menu">
+      <ul>
+        <li>
+          <a href="home.html">
+            <i class="fa-solid fa-house"></i>
+            Inicio
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-chart-column"></i>
+            Reportes
+          </a>
+        </li>
+
+        <li>
+          <a href="panel_gestion_personal.html">
+            <i class="fa-solid fa-gear"></i>
+            Gestión
+          </a>
+        </li>
+
+        <li>
+          <a href="pendientes.html">
+            <i class="fa-solid fa-clock"></i>
+            Pendientes
+          </a>
+        </li>
+
+        <li id="log-out">
+          <a href="index.html">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Cerrar Sesión
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- TITULO -->
+    <div class="head">
+      <h1 style="margin-top: 10px">PANEL DE REPORTES</h1>
+    </div>
+
+    <!-- FILTROS -->
+    <div class="search">
+      <form>
+        <!-- FECHA DESDE -->
+        <input type="date" class="searcher" />
+
+        <!-- FECHA HASTA -->
+        <input type="date" class="searcher" />
+
+        <!-- ESTADOS -->
+        <select id="type-solicited">
+          <option>Completo</option>
+          <option>Falta</option>
+          <option>Retraso</option>
+          <option>Extra</option>
+        </select>
+
+        <button id="search-button" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- TABLA -->
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>ID EMPLEADO</th>
+            <th>NOMBRE COMPLETO</th>
+            <th>FECHA</th>
+            <th>HORA ENTRADA</th>
+            <th>HORA SALIDA</th>
+            <th>HORAS TOTALES</th>
+            <th>ESTADO</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>E001</td>
+            <td>Juan Pérez</td>
+            <td>17/03/2026</td>
+            <td>08:00</td>
+            <td>17:00</td>
+            <td>9.00</td>
+            <td>Completo</td>
+          </tr>
+
+          <tr>
+            <td>E002</td>
+            <td>María García</td>
+            <td>17/03/2026</td>
+            <td>08:30</td>
+            <td>16:30</td>
+            <td>8.00</td>
+            <td>Completo</td>
+          </tr>
+
+          <tr>
+            <td>E003</td>
+            <td>Carlos Rodríguez</td>
+            <td>17/03/2026</td>
+            <td>--</td>
+            <td>--</td>
+            <td>0.00</td>
+            <td>Falta</td>
+          </tr>
+
+          <tr>
+            <td>E004</td>
+            <td>Carlos Rodríguez</td>
+            <td>17/03/2026</td>
+            <td>08:00</td>
+            <td>17:00</td>
+            <td>9.00</td>
+            <td>Completo</td>
+          </tr>
+
+          <tr>
+            <td>E005</td>
+            <td>María García</td>
+            <td>17/03/2026</td>
+            <td>08:30</td>
+            <td>16:30</td>
+            <td>9.00</td>
+            <td>Completo</td>
+          </tr>
+
+          <tr>
+            <td>E006</td>
+            <td>María García</td>
+            <td>17/03/2026</td>
+            <td>08:30</td>
+            <td>16:30</td>
+            <td>8.00</td>
+            <td>Completo</td>
+          </tr>
+
+          <tr>
+            <td>E007</td>
+            <td>Carlos Rodríguez</td>
+            <td>17/03/2026</td>
+            <td>09:00</td>
+            <td>15:00</td>
+            <td>6.00</td>
+            <td>Retraso</td>
+          </tr>
+
+          <tr>
+            <td>E008</td>
+            <td>Carlos Rodríguez</td>
+            <td>17/03/2026</td>
+            <td>08:00</td>
+            <td>17:00</td>
+            <td>9.00</td>
+            <td>Completo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PANEL DERECHO -->
+    <div class="permisse">
+      <label> RESUMEN DEL REPORTE </label>
+
+      <span> Total Empleados: 15 </span>
+
+      <br />
+
+      <span> Total Horas: 640 </span>
+
+      <br />
+
+      <span> Total Faltas: 3 </span>
+
+      <button>
+        <i class="fa-solid fa-file-pdf"></i>
+        Exportar PDF / Excel
+      </button>
+    </div>
+
+    <!-- PANEL VACACIONES -->
+    <div class="vacation">
+      <label> HORAS EXTRAS </label>
+    </div>
+  </body>
+</html>
