@@ -12,9 +12,7 @@
 
 html {
   height: 100%;
-  background:
-    linear-gradient(to right, transparent, black),
-    url("../img/background.jpg") no-repeat center / cover;
+  background: url("../img/background.jpg") no-repeat center / cover;
   font-family: "Roboto-Bold", sans-serif;
   color: white;
 }
@@ -48,10 +46,11 @@ body {
 
 #bars {
   position: fixed;
-  top: 3vh;
-  left: 2vw;
+  top: 1vh;
+  left: 1vw;
   cursor: pointer;
-  font-size: 30px;
+  width: 3.5%;
+  filter: invert(100%);
   z-index: 110;
 }
 
@@ -71,29 +70,30 @@ ul {
 }
 
 .menu a {
-  outline-style: none;
   text-decoration: none;
   color: aliceblue;
-  line-height: 2;
   display: block;
   padding: 20px;
-  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background-color: #ad1414;
+  font-size: 1.1rem;
+  padding-left: 30px;
 }
 
 .menu-toggle:checked ~ .menu {
   left: 0;
 }
 
-a:hover {
-  transition: 0.3s;
-  background-color: #ad1414;
-  font-size: 20px;
-}
-
 #log-out {
-  position: absolute;
-  bottom: 10%;
-  width: 100%;
+  position: fixed;
+  top: 2%;
+  width: 2.2%;
+  z-index: 100;
+  filter: invert(100%);
+  right: 2%;
 }
 
 .head {
@@ -163,22 +163,10 @@ a:hover {
   color: #333;
 }
 
-.clock-container button {
-  width: 80%;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background-color: #ad1414;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  text-align: center;
-}
-
-.clock-container buttonn:hover {
-  background-color: #302a2a;
-  transform: translateY(-2px);
+.date {
+  font-family: monospace;
+  position: relative;
+  top: 5%;
 }
 
 .asistence {
@@ -385,13 +373,13 @@ progress::-webkit-progress-value {
   color: white;
   margin: 10px;
   transition: 0.1s;
+  background-color: #ad1414;
 }
 
-.btn-entrada {
-  background-color: #ad1414;
-}
-.btn-salida {
-  background-color: #ad1414;
+.btn-entrada:hover,
+.btn-salida:hover {
+  transition: 0.3s;
+  transform: scale(1.1);
 }
 
 .modal-backdrop:hover,
@@ -402,7 +390,21 @@ progress::-webkit-progress-value {
 
 /* Quita el cambio de color y el aumento de tamaño de la X */
 .close-x:hover {
+  transition: 0.3s;
   color: #333 !important; /* O el color que tenga por defecto */
-  transform: scale(2); /* Quita el aumento de tamaño */
+  transform: scale(1.1); /* Quita el aumento de tamaño */
   background-color: transparent !important; /* Evita que se pinte el fondo de rojo */
+}
+
+p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+textarea {
+  border-radius: 8px;
+  padding: 10px;
+  resize: none;
+  border: 1px solid #ccc;
 }

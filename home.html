@@ -5,25 +5,24 @@
     <meta name="viewport" content="width=, initial-scale=1.0" />
     <title>Inicio</title>
     <link rel="stylesheet" href="sources/css/home_styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <script src="sources/js/validation.js"></script>
   </head>
   <body>
     <div class="top">
       <input type="checkbox" class="menu-toggle top" id="show-menu" />
       <label for="show-menu">
-        <i class="fa-solid fa-bars" id="bars"></i>
+        <img src="sources/img/icon/bars_menu.png" alt="menu" id="bars" />
       </label>
+      <a href="index.html"
+        ><img src="sources/img/icon/logout.png" alt="logout" id="log-out"
+      /></a>
       <nav class="menu">
         <ul>
-          <li><a href="#">🏠 Inicio</a></li>
-          <li><a href="panel_reportes.html">📶 Reportes</a></li>
-          <li><a href="panel_gestion_personal.html">🧰 Gestión</a></li>
-          <li><a href="pendientes.html">⚙️ pendientes</a></li>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="panel_reportes.html">Reportes</a></li>
+          <li><a href="panel_gestion_personal.html">Gestión</a></li>
+          <li><a href="pendientes.html">pendientes</a></li>
         </ul>
-        <a id="log-out" href="index.html">🚪 Salir</a>
       </nav>
     </div>
     <div class="head">
@@ -32,6 +31,7 @@
     </div>
     <div class="clock-container">
       <span>Registro de hoy</span>
+      <span class="date" style="color: #333">00/00/0000</span>
       <div class="clock">00:00:00</div>
 
       <a href="#registro-entrada" class="btn-entrada">Registrar Entrada</a>
@@ -43,7 +43,8 @@
       <div class="table">
         <table>
           <thead>
-            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
             <th>Entrada</th>
             <th>salida</th>
           </thead>
@@ -73,12 +74,7 @@
         <form action="#" method="POST">
           <div class="input-group">
             <label>Cédula de Identidad</label>
-            <input
-              type="number"
-              name="cedula"
-              placeholder="Ej: 27123456"
-              required
-            />
+            <input type="number" name="cedula" placeholder="Ej: 27123456" />
           </div>
           <div class="input-group">
             <label>Nombre y Apellido</label>
@@ -86,17 +82,17 @@
               type="text"
               name="nombre_completo"
               placeholder="Nombre del trabajador"
-              required
             />
           </div>
           <div class="input-group">
-            <label>Carga / Departamento</label>
-            <select name="carga" required>
+            <label>Cargo</label>
+            <select name="carga">
               <option value="" disabled selected>Seleccione área...</option>
-              <option value="administracion">Administración</option>
-              <option value="mantenimiento">Mantenimiento</option>
-              <option value="transporte">Transporte</option>
-              <option value="sistemas">Sistemas</option>
+              <option value="tecnico">Tecnico</option>
+              <option value="profesional">Profesional</option>
+              <option value="jefe_div">Jefe de division</option>
+              <option value="cont">Cont-PI</option>
+              <option value="director">Director Estadal</option>
             </select>
           </div>
           <button type="submit" class="confirm-btn in">
@@ -111,32 +107,22 @@
       <div class="modal-box out">
         <a href="#" class="close-x">&times;</a>
         <div class="modal-header">
-          <i class="fa-solid fa-right-from-bracket"></i>
           <h2>Finalizar Jornada</h2>
         </div>
         <form action="#" method="POST">
-          <p style="text-align: center; color: #666; margin-bottom: 20px">
-            Ingrese su cédula para registrar la hora de salida oficial.
-          </p>
+          <p>Ingrese su cédula para registrar la hora de salida oficial.</p>
           <div class="input-group">
             <label>Cédula de Identidad</label>
             <input
               type="number"
               name="cedula"
               placeholder="Ingrese CI para marcar salida"
-              required
             />
           </div>
           <div class="input-group">
             <label>Observaciones (Opcional)</label>
             <textarea
               name="nota"
-              style="
-                border-radius: 8px;
-                padding: 10px;
-                resize: none;
-                border: 1px solid #ccc;
-              "
               placeholder="Alguna novedad en el turno..."
             ></textarea>
           </div>

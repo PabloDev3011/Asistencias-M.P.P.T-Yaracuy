@@ -13,9 +13,7 @@
 
 html {
   height: 100%;
-  background:
-    linear-gradient(to right, transparent, black),
-    url("../img/background.jpg") no-repeat center / cover;
+  background: url("../img/background.jpg") no-repeat center / cover;
   font-family: "Roboto-Bold", sans-serif;
 }
 
@@ -94,6 +92,12 @@ form {
   border-bottom-color: rgb(173, 20, 20);
 }
 
+#user-img,
+#lock-img {
+  position: relative;
+  width: 8%;
+}
+
 .login_btn {
   position: absolute;
   bottom: 50px;
@@ -115,10 +119,6 @@ form {
   transform: scale(1.01);
   box-shadow: 1px 1px 10px black;
 }
-.user i,
-.password i:first-child {
-  color: gray;
-}
 
 #show_password {
   position: fixed;
@@ -134,6 +134,11 @@ form {
 
 #eye-open {
   display: none;
+}
+
+#eye-open,
+#eye-closed {
+  width: 50%;
 }
 
 #show_password:checked ~ .check_icon #eye-closed {

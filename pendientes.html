@@ -5,48 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pendientes</title>
     <link rel="stylesheet" href="sources/css/pen_styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <script src="sources/js/validation.js"></script>
   </head>
   <body>
     <div class="top">
       <input type="checkbox" class="menu-toggle top" id="show-menu" />
       <label for="show-menu">
-        <i class="fa-solid fa-bars" id="bars"></i>
+        <img src="sources/img/icon/bars_menu.png" alt="menu" id="bars" />
       </label>
+      <a href="index.html"
+        ><img src="sources/img/icon/logout.png" alt="logout" id="log-out"
+      /></a>
       <nav class="menu">
         <ul>
           <li><a href="home.html"> Inicio</a></li>
           <li><a href="panel_reportes.html"> Reportes</a></li>
           <li>
-            <a href="panel_gestion_personal.html">
-              <i class="fa-solid fa-gear"></i> Gestión</a
-            >
+            <a href="panel_gestion_personal.html"> Gestión</a>
           </li>
           <li>
-            <a href="pendientes.html">
-              <i class="fa-solid fa-clock"></i> pendientes</a
-            >
+            <a href="pendientes.html"> pendientes</a>
           </li>
         </ul>
-        <a id="log-out" href="index.html">
-          <i class="fa-solid fa-right-from-bracket"></i> Salir</a
-        >
       </nav>
     </div>
 
     <div class="head"><h1>PANEL DE GESTION DE PEDIENTES</h1></div>
     <div class="permisse">
       <label for="permisse">Solicitud de permisos</label>
-      <button>Crear nueva solicitud</button>
-      <div id="overlay" class="overlay">
-        <div class="modal-container"></div>
-      </div>
+
+      <a href="#modal-permiso-oficial" class="btn-solicitud"
+        >Nueva Solicitud de Permiso</a
+      >
     </div>
     <div class="vacation">
-      <label for="vacation">Solicitud en espera</label>
+      <label for="vacation">Solicitud de vacaciones</label>
+      <a href="#modal-vacaciones-oficial" class="btn-solicitud"
+        >Nueva Solicitud Vacaciones</a
+      >
     </div>
     <div class="table">
       <table class="solicit-table">
@@ -83,10 +79,404 @@
           ><i class="fa-solid fa-angle-down"></i
         ></label>
         <input type="search" placeholder="Buscar..." class="searcher" />
-        <button type="submit" id="search-button">
-          <i class="fa fa-search"></i>
+        <button class="search-button">
+          <img src="sources/img/icon/search.png" alt="buscar" id="search" />
         </button>
       </form>
+    </div>
+
+    <div id="modal-permiso-oficial" class="modal-master">
+      <a href="#" class="modal-backdrop"></a>
+      <div class="modal-box master-mppt">
+        <a href="#" class="close-x">&times;</a>
+
+        <div class="modal-header">
+          <h2
+            style="
+              font-size: 1.1rem;
+              border-bottom: 2px solid #ad1414;
+              padding-bottom: 10px;
+            "
+          >
+            SOLICITUD Y AUTORIZACIÓN DE PERMISOS
+          </h2>
+        </div>
+
+        <form action="" method="POST">
+          <div class="form-row">
+            <div class="input-group" style="flex: 2">
+              <label>APELLIDO Y NOMBRE:</label>
+              <input type="text" name="nombre_completo" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>C.I.:</label>
+              <input type="number" name="cedula" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 2">
+              <label>CARGO QUE DESEMPEÑA:</label>
+              <input type="text" name="cargo" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>CODIGO:</label>
+              <input type="text" name="codigo" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>UBICACIÓN ADMINISTRATIVA:</label>
+            <input
+              type="text"
+              name="ubicacion"
+              placeholder="Ej: San Felipe, Yaracuy"
+            />
+          </div>
+
+          <div
+            class="form-row"
+            style="background: #eee; padding: 10px; border-radius: 8px"
+          >
+            <div class="input-group" style="flex: 1">
+              <label>DESDE:</label>
+              <input type="date" name="fecha_desde" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>HASTA:</label>
+              <input type="date" name="fecha_hasta" />
+            </div>
+
+            <div
+              class="checkbox-group"
+              style="
+                flex: 1.5;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                gap: 5px;
+              "
+            >
+              <div class="check-item">
+                <label>MAÑANA</label>
+                <input type="radio" name="horario" value="manana" />
+              </div>
+              <div class="check-item">
+                <label>TARDE</label>
+                <input type="radio" name="horario" value="tarde" />
+              </div>
+              <div class="check-item">
+                <label>TODO EL DIA</label>
+                <input type="radio" name="horario" value="todo_dia" />
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group" style="margin-top: 15px">
+            <label>MOTIVO DE LA JUSTIFICACIÓN (Jefe Inmediato):</label>
+            <textarea
+              name="justificacion"
+              rows="3"
+              placeholder="Indique el motivo detallado..."
+            ></textarea>
+          </div>
+
+          <p style="font-size: 0.7rem; color: #666; margin-bottom: 15px">
+            San Felipe, Yaracuy. Proyecto MPPT © 2026
+          </p>
+
+          <button type="submit" class="confirm-btn">GENERAR SOLICITUD</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="modal-vacaciones-oficial" class="modal-master">
+      <a href="#" class="modal-backdrop"></a>
+      <div class="modal-box master-mppt-vaca">
+        <a href="#" class="close-x">&times;</a>
+
+        <div class="modal-header">
+          <h2
+            style="
+              font-size: 1rem;
+              border-bottom: 2px solid #ad1414;
+              padding-bottom: 10px;
+            "
+          >
+            SOLICITUD Y APROBACIÓN DE VACACIONES
+          </h2>
+        </div>
+
+        <form action="" method="POST">
+          <div class="form-row">
+            <div class="input-group" style="flex: 2">
+              <label>1. LUGAR:</label>
+              <input type="text" name="lugar" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>2. FECHA:</label>
+              <input type="date" name="fecha_solicitud" />
+            </div>
+            <div class="checkbox-group-vaca" style="flex: 1">
+              <label style="font-size: 0.6rem"
+                >EMPLEADO
+                <input
+                  type="radio"
+                  name="tipo_personal"
+                  value="empleado"
+                  checked
+              /></label>
+              <label style="font-size: 0.6rem"
+                >OBRERO <input type="radio" name="tipo_personal" value="obrero"
+              /></label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 2">
+              <label>3. APELLIDOS Y NOMBRES:</label>
+              <input type="text" name="nombres" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>4. CÉDULA DE IDENTIDAD:</label>
+              <input type="text" name="ci" placeholder="V-00.000.000" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 2">
+              <label>5. DENOMINACIÓN AL CARGO:</label>
+              <input type="text" name="cargo_vaca" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>6. CODIGO DE NÓMINA:</label>
+              <input type="text" name="cod_nomina" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 1">
+              <label>7. FECHA INGRESO ADM. PUBLICA:</label>
+              <input type="date" name="fecha_adm_p" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>8. FECHA INGRESO MPPT:</label>
+              <input type="date" name="fecha_mppt" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>9. AÑOS DE SERVICIO:</label>
+              <input type="number" name="anos_servicio" placeholder="0" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>10. UBICACIÓN ADMINISTRATIVA (COMPLETA):</label>
+            <input
+              type="text"
+              name="ubicacion_full"
+              placeholder="Dirección, Coordinación, etc."
+            />
+          </div>
+
+          <div class="vaca-period-container">
+            <div class="vaca-row-header">SOLICITUD PERIODO DE DISFRUTE</div>
+            <div class="form-row" style="padding: 10px">
+              <div class="input-group" style="flex: 1">
+                <label>PERIODO VACACIONAL:</label>
+                <input type="text" name="periodo_vac" placeholder="2023-2024" />
+              </div>
+              <div class="input-group" style="flex: 1">
+                <label>FECHA DE INICIO:</label>
+                <input type="date" name="vaca_inicio" />
+              </div>
+              <div class="input-group" style="flex: 1">
+                <label>FECHA CULMINACIÓN:</label>
+                <input type="date" name="vaca_fin" />
+              </div>
+              <div class="input-group" style="flex: 1">
+                <label>FECHA INCORPORACIÓN:</label>
+                <input type="date" name="vaca_retorno" />
+              </div>
+            </div>
+            <div
+              class="form-row"
+              style="border-top: 1px solid #ddd; padding: 10px"
+            >
+              <div class="input-group" style="flex: 1">
+                <label>QUINQUENIO:</label>
+                <select name="quinquenio">
+                  <option value="1">1er Quinquenio</option>
+                  <option value="2">2do Quinquenio</option>
+                  <option value="3">3er Quinquenio</option>
+                </select>
+              </div>
+              <div class="input-group" style="flex: 1">
+                <label>DÍAS HÁBILES DE DISFRUTE:</label>
+                <input
+                  type="number"
+                  name="dias_disfrute"
+                  placeholder="Ej: 25"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>OBSERVACIONES:</label>
+            <textarea name="observaciones_vaca" rows="2"></textarea>
+          </div>
+
+          <button type="submit" class="confirm-btn">
+            APROBAR SOLICITUD DE VACACIONES
+          </button>
+        </form>
+      </div>
+    </div>
+    <a href="#modal-vacaciones-oficial" class="btn-solicitud"
+      >Nueva Solicitud Vacaciones (Oficial)</a
+    >
+
+    <div id="modal-vacaciones-oficial" class="modal-master">
+      <a href="#" class="modal-backdrop"></a>
+      <div class="modal-box master-mppt-vaca">
+        <a href="#" class="close-x">&times;</a>
+
+        <div class="modal-header">
+          <h2
+            style="
+              font-size: 1rem;
+              border-bottom: 2px solid #ad1414;
+              padding-bottom: 10px;
+            "
+          >
+            SOLICITUD Y APROBACIÓN DE VACACIONES
+          </h2>
+        </div>
+
+        <form action="" method="POST">
+          <div class="form-row">
+            <div class="input-group" style="flex: 2">
+              <label>1. LUGAR:</label>
+              <input type="text" name="lugar" value="INDEPENDENCIA - YARACUY" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>2. FECHA:</label>
+              <input type="date" name="fecha_solicitud" />
+            </div>
+            <div class="checkbox-group-vaca" style="flex: 1">
+              <label style="font-size: 0.6rem"
+                >EMPLEADO
+                <input
+                  type="radio"
+                  name="tipo_personal"
+                  value="empleado"
+                  checked
+              /></label>
+              <label style="font-size: 0.6rem"
+                >OBRERO <input type="radio" name="tipo_personal" value="obrero"
+              /></label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 2">
+              <label>3. APELLIDOS Y NOMBRES:</label>
+              <input type="text" name="nombres" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>4. CÉDULA DE IDENTIDAD:</label>
+              <input type="text" name="ci" placeholder="V-00.000.000" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 2">
+              <label>5. DENOMINACIÓN AL CARGO:</label>
+              <input type="text" name="cargo_vaca" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>6. CODIGO DE NÓMINA:</label>
+              <input type="text" name="cod_nomina" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 1">
+              <label>7. FECHA INGRESO ADM. PUBLICA:</label>
+              <input type="date" name="fecha_adm_p" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>8. FECHA INGRESO MPPT:</label>
+              <input type="date" name="fecha_mppt" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>9. AÑOS DE SERVICIO:</label>
+              <input type="number" name="anos_servicio" placeholder="0" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>10. UBICACIÓN ADMINISTRATIVA (COMPLETA):</label>
+            <input
+              type="text"
+              name="ubicacion_full"
+              placeholder="Dirección, Coordinación, etc."
+            />
+          </div>
+
+          <div class="vaca-period-container">
+            <div class="vaca-row-header">SOLICITUD PERIODO DE DISFRUTE</div>
+            <div class="form-row" style="padding: 10px">
+              <div class="input-group" style="flex: 1">
+                <label>PERIODO VACACIONAL:</label>
+                <input type="text" name="periodo_vac" placeholder="2023-2024" />
+              </div>
+              <div class="input-group" style="flex: 1">
+                <label>FECHA DE INICIO:</label>
+                <input type="date" name="vaca_inicio" />
+              </div>
+              <div class="input-group" style="flex: 1">
+                <label>FECHA CULMINACIÓN:</label>
+                <input type="date" name="vaca_fin" />
+              </div>
+              <div class="input-group" style="flex: 1">
+                <label>FECHA INCORPORACIÓN:</label>
+                <input type="date" name="vaca_retorno" />
+              </div>
+            </div>
+            <div
+              class="form-row"
+              style="border-top: 1px solid #ddd; padding: 10px"
+            >
+              <div class="input-group" style="flex: 1">
+                <label>QUINQUENIO:</label>
+                <select name="quinquenio">
+                  <option value="1">1er Quinquenio</option>
+                  <option value="2">2do Quinquenio</option>
+                  <option value="3">3er Quinquenio</option>
+                </select>
+              </div>
+              <div class="input-group" style="flex: 1">
+                <label>DÍAS HÁBILES DE DISFRUTE:</label>
+                <input
+                  type="number"
+                  name="dias_disfrute"
+                  placeholder="Ej: 25"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>OBSERVACIONES:</label>
+            <textarea name="observaciones_vaca" rows="2"></textarea>
+          </div>
+
+          <button type="submit" class="confirm-btn">
+            APROBAR SOLICITUD DE VACACIONES
+          </button>
+        </form>
+      </div>
     </div>
   </body>
 </html>

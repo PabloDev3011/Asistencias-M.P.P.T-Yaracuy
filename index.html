@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="sources/css/log_styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <script src="sources/js/validation.js"></script>
     <title>Inicio de sesión MMPTY</title>
   </head>
 
@@ -19,7 +16,7 @@
       <div class="form">
         <form action="home.html" name="login">
           <div class="user">
-            <i class="fa-regular fa-user"></i>
+            <img src="sources/img/icon/user.png" alt="user" id="user-img" />
             <input
               placeholder="Usuario"
               type="text"
@@ -27,13 +24,12 @@
               name="usuario"
               class="input_field"
               id="usuario_input"
-              required
               autocomplete="off"
             />
           </div>
 
           <div class="password">
-            <i class="fa-solid fa-lock"></i>
+            <img src="sources/img/icon/lock.png" alt="lock" id="lock-img" />
             <input
               placeholder="Clave"
               type="password"
@@ -41,7 +37,6 @@
               class="input_field"
               maxlength="30"
               id="clave_input"
-              required
             />
 
             <input
@@ -51,8 +46,12 @@
             />
 
             <label for="show_password" class="check_icon">
-              <i class="fa-regular fa-eye-slash" id="eye-closed"></i>
-              <i class="fa-regular fa-eye" id="eye-open"></i>
+              <img
+                src="sources/img/icon/eye_close.png"
+                alt="eye_close"
+                id="eye-closed"
+              />
+              <img src="sources/img/icon/eye.png" alt="eye" id="eye-open" />
             </label>
 
             <a href="#" class="forgot_link">¿Olvidó su contraseña?</a>
