@@ -7,12 +7,12 @@ function validar_usr(obj) {
 
   if (usr != user) {
     alert("Usuario incorrecto");
-    obj.usuario.focus;
+    obj.usuario.focus();
     return false;
   }
   if (pass != password) {
     alert("Clave incorrecta");
-    obj.clave.focus;
+    obj.clave.focus();
     return false;
   }
 }

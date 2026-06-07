@@ -402,5 +402,18 @@ textarea {
   border-radius: 8px;
   padding: 10px;
   resize: none;
+  outline: none;
   border: 1px solid #ccc;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

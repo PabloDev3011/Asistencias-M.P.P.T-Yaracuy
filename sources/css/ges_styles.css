@@ -263,7 +263,7 @@ tr:hover {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: 0.4s;
+  transition: 0.1s;
   z-index: 500;
 }
 
@@ -355,6 +355,7 @@ tr:hover {
   border-radius: 4px;
   font-size: 0.85rem;
   width: 100%;
+  outline: none;
 }
 
 .master-mppt-personal a:hover {
@@ -377,4 +378,29 @@ tr:hover {
 .master-mppt-personal .confirm-btn:hover {
   background-color: #ad1414;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.checkbox-ges-per {
+  padding-right: 20px;
+  display: flex;
+  padding-top: 3%;
+  justify-content: center;
+  text-align: center;
+  border-left: 1px solid #ddd;
+  padding-left: 15px;
+  cursor: pointer;
+  transform: scale(1.2);
+  accent-color: #ad1414;
 }

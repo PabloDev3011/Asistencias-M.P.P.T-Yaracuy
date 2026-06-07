@@ -94,6 +94,11 @@ ul {
   right: 2%;
 }
 
+#here {
+  background-color: #ad1414;
+  font-size: 1.1rem;
+  padding-left: 30px;
+}
 .search {
   position: absolute;
   bottom: 6.5%;
@@ -210,14 +215,20 @@ table {
   z-index: 1;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 th {
-  padding-right: 30px;
-  padding-bottom: 20px;
+  padding: 1.7%;
   color: white;
   text-transform: uppercase;
-  top: 0;
   position: sticky;
-  background-color: #ad1414ef;
+  top: 0;
+  background-color: #ad1414;
+  font-size: 0.85rem;
+  text-align: left;
 }
 
 td {
@@ -302,6 +313,7 @@ tr:hover {
   cursor: default;
   z-index: 200;
   visibility: hidden;
+  transition: 0.1s;
 }
 .modal-master {
   position: fixed;
@@ -314,7 +326,7 @@ tr:hover {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: 0.4s;
+  transition: 0.1s;
   z-index: 500;
 }
 
@@ -341,7 +353,7 @@ tr:hover {
   border-top: 8px solid #ad1414;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
   transform: scale(0.8);
-  transition: 0.3s;
+  transition: 0.1s;
 }
 
 .modal-master:target .modal-box {
@@ -370,10 +382,13 @@ tr:hover {
 }
 .input-group input,
 .input-group select {
-  padding: 10px;
+  padding: 9px;
   border: 1px solid #ccc;
   border-radius: 8px;
   outline: none;
+}
+#departament {
+  width: 65%;
 }
 .confirm-btn {
   width: 100%;
@@ -467,7 +482,7 @@ textarea {
   color: #333;
 }
 
-.check-item input[type="radio"] {
+input[type="radio"] {
   width: 18px;
   height: 18px;
   cursor: pointer;
@@ -537,8 +552,31 @@ textarea {
 
 .checkbox-group-vaca {
   display: flex;
-  flex-direction: column;
+  padding-top: 3%;
   justify-content: center;
+  text-align: center;
   border-left: 1px solid #ddd;
   padding-left: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.checkbox-type-employed {
+  position: absolute;
+  right: 10%;
+  display: flex;
+  padding-top: 3%;
+  border-left: 1px solid #ddd;
+  cursor: pointer;
+  accent-color: #ad1414;
 }

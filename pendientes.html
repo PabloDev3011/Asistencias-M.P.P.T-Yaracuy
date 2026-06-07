@@ -6,6 +6,7 @@
     <title>Pendientes</title>
     <link rel="stylesheet" href="sources/css/pen_styles.css" />
     <script src="sources/js/validation.js"></script>
+    <script src="sources/js/validacion_fechas.js"></script>
   </head>
   <body>
     <div class="top">
@@ -24,7 +25,7 @@
             <a href="panel_gestion_personal.html"> Gestión</a>
           </li>
           <li>
-            <a href="pendientes.html"> pendientes</a>
+            <a href="#" id="here"> pendientes</a>
           </li>
         </ul>
       </nav>
@@ -78,7 +79,12 @@
         <label for="type-solicited"
           ><i class="fa-solid fa-angle-down"></i
         ></label>
-        <input type="search" placeholder="Buscar..." class="searcher" />
+        <input
+          type="search"
+          maxlength="50"
+          placeholder="Buscar..."
+          class="searcher"
+        />
         <button class="search-button">
           <img src="sources/img/icon/search.png" alt="buscar" id="search" />
         </button>
@@ -102,36 +108,95 @@
           </h2>
         </div>
 
-        <form action="#" method="POST">
+        <form action="" method="POST">
           <div class="form-row">
             <div class="input-group" style="flex: 2">
               <label>APELLIDO Y NOMBRE:</label>
-              <input type="text" name="nombre_completo" />
+              <input
+                type="text"
+                name="nombre_completo"
+                placeholder="Nombre completo"
+                maxlength="50"
+              />
             </div>
             <div class="input-group" style="flex: 1">
               <label>C.I.:</label>
-              <input type="number" name="cedula" />
+              <input
+                type="number"
+                name="cedula"
+                placeholder="V-1.234.567"
+                max="99999999"
+              />
             </div>
           </div>
 
           <div class="form-row">
             <div class="input-group" style="flex: 2">
               <label>CARGO QUE DESEMPEÑA:</label>
-              <input type="text" name="cargo" />
+              <select name="select-cargo" id="cargo-select">
+                <option disabled selected>Seleccione un cargo</option>
+                <option value="tecnicoii">Tecnico II</option>
+                <option value="profesionaliii">Profesional III</option>
+                <option value="vigilante">Vigilante</option>
+                <option value="auxiliar">
+                  Auxiliar de servicios de oficina
+                </option>
+                <option value="supervisor">
+                  Supervisor de servicios especializados
+                </option>
+                <option value="jefe">Jefe de division administrativa</option>
+              </select>
             </div>
             <div class="input-group" style="flex: 1">
-              <label>CODIGO:</label>
-              <input type="text" name="codigo" />
+              <label>CODIGO DE NOMINA:</label>
+              <input type="text" name="codigo" placeholder="Ej: 1234" />
             </div>
           </div>
 
           <div class="input-group">
-            <label>UBICACIÓN ADMINISTRATIVA:</label>
-            <input
-              type="text"
-              name="ubicacion"
-              placeholder="Ej: San Felipe, Yaracuy"
-            />
+            <label>DIVISIÓN ADMINISTRATIVA:</label>
+            <select id="departament">
+              <option disabled selected>Seleccione una opción</option>
+              <option value="d-admin" disabled>División administrativa</option>
+              <option value="coord-rh">Coordinación de gestion humana</option>
+              <option value="coord-ac">
+                Coordinación de atención al ciudadano
+              </option>
+              <option value="coord-sg">
+                Coordinación de servicios generales
+              </option>
+              <option value="div-mantenimiento" disabled>
+                División de infraestructura y mantenimiento víal
+              </option>
+              <option value="coord-inf">Coordinaciónde infraestructura</option>
+              <option value="coord-mant">
+                Coordinación de mantenimiento vial
+              </option>
+              <option value="div-op" disabled>
+                División de operaciones del sistema de transporte superficial
+              </option>
+              <option value="coord-seg">
+                Coordinación de seguimiento y actualización de operaciones del
+                sistema de transporte
+              </option>
+              <option value="coord-at">
+                Coordinacion de atención al transportista
+              </option>
+            </select>
+
+            <div class="checkbox-type-employed" style="flex: 1">
+              <label style="font-size: 0.6rem"
+                >EMPLEADO
+                <input
+                  type="radio"
+                  name="tipo_personal"
+                  value="empleado"
+                  checked
+              /></label>
+              <label style="font-size: 0.6rem"
+                >OBRERO <input type="radio" name="tipo_personal" value="obrero"
+              /></label>
+            </div>
           </div>
 
           <div
@@ -140,11 +205,11 @@
           >
             <div class="input-group" style="flex: 1">
               <label>DESDE:</label>
-              <input type="date" name="fecha_desde" />
+              <input type="date" name="fecha_desde" class="pri-fecha" />
             </div>
             <div class="input-group" style="flex: 1">
               <label>HASTA:</label>
-              <input type="date" name="fecha_hasta" />
+              <input type="date" name="fecha_hasta" class="sec-fecha" />
             </div>
 
             <div
@@ -181,10 +246,6 @@
             ></textarea>
           </div>
 
-          <p style="font-size: 0.7rem; color: #666; margin-bottom: 15px">
-            San Felipe, Yaracuy. Proyecto MPPT © 2026
-          </p>
-
           <button type="submit" class="confirm-btn">GENERAR SOLICITUD</button>
         </form>
       </div>
@@ -207,11 +268,17 @@
           </h2>
         </div>
 
-        <form action="" method="POST">
+        <form action="#" method="POST" onsubmit="return mayor_edad(this);">
           <div class="form-row">
             <div class="input-group" style="flex: 2">
               <label>1. LUGAR:</label>
-              <input type="text" name="lugar" />
+              <input
+                type="text"
+                name="lugar"
+                placeholder="Sede de mmpt"
+                value="independencia-Yaracuy"
+                maxlength="50"
+              />
             </div>
             <div class="input-group" style="flex: 1">
               <label>2. FECHA:</label>
@@ -235,7 +302,12 @@
           <div class="form-row">
             <div class="input-group" style="flex: 2">
               <label>3. APELLIDOS Y NOMBRES:</label>
-              <input type="text" name="nombres" />
+              <input
+                type="text"
+                name="nombres"
+                placeholder="Nombre completo"
+                max="50"
+              />
             </div>
             <div class="input-group" style="flex: 1">
               <label>4. CÉDULA DE IDENTIDAD:</label>
@@ -246,11 +318,28 @@
           <div class="form-row">
             <div class="input-group" style="flex: 2">
               <label>5. DENOMINACIÓN AL CARGO:</label>
-              <input type="text" name="cargo_vaca" />
+              <select name="select-cargo" id="cargo-select">
+                <option disabled selected>Seleccione un cargo</option>
+                <option value="tecnicoii">Tecnico II</option>
+                <option value="profesionaliii">Profesional III</option>
+                <option value="vigilante">Vigilante</option>
+                <option value="auxiliar">
+                  Auxiliar de servicios de oficina
+                </option>
+                <option value="supervisor">
+                  Supervisor de servicios especializados
+                </option>
+                <option value="jefe">Jefe de division administrativa</option>
+              </select>
             </div>
             <div class="input-group" style="flex: 1">
               <label>6. CODIGO DE NÓMINA:</label>
-              <input type="text" name="cod_nomina" />
+              <input
+                type="text"
+                name="cod_nomina"
+                placeholder="Ej: 1234"
+                maxlength="4"
+              />
             </div>
           </div>
 
@@ -265,17 +354,45 @@
             </div>
             <div class="input-group" style="flex: 1">
               <label>9. AÑOS DE SERVICIO:</label>
-              <input type="number" name="anos_servicio" placeholder="0" />
+              <input
+                type="number"
+                name="anos_servicio"
+                placeholder="0"
+                readonly
+              />
             </div>
           </div>
 
           <div class="input-group">
-            <label>10. UBICACIÓN ADMINISTRATIVA (COMPLETA):</label>
-            <input
-              type="text"
-              name="ubicacion_full"
-              placeholder="Dirección, Coordinación, etc."
-            />
+            <label>10. UBICACIÓN ADMINISTRATIVA:</label>
+            <select id="departament">
+              <option disabled selected>Seleccione una opción</option>
+              <option value="d-admin" disabled>División administrativa</option>
+              <option value="coord-rh">Coordinación de gestion humana</option>
+              <option value="coord-ac">
+                Coordinación de atención al ciudadano
+              </option>
+              <option value="coord-sg">
+                Coordinación de servicios generales
+              </option>
+              <option value="div-mantenimiento" disabled>
+                División de infraestructura y mantenimiento víal
+              </option>
+              <option value="coord-inf">Coordinaciónde infraestructura</option>
+              <option value="coord-mant">
+                Coordinación de mantenimiento vial
+              </option>
+              <option value="div-op" disabled>
+                División de operaciones del sistema de transporte superficial
+              </option>
+              <option value="coord-seg">
+                Coordinación de seguimiento y actualización de operaciones del
+                sistema de transporte
+              </option>
+              <option value="coord-at">
+                Coordinacion de atención al transportista
+              </option>
+            </select>
           </div>
 
           <div class="vaca-period-container">
@@ -283,19 +400,19 @@
             <div class="form-row" style="padding: 10px">
               <div class="input-group" style="flex: 1">
                 <label>PERIODO VACACIONAL:</label>
-                <input type="text" name="periodo_vac" placeholder="2023-2024" />
+                <input type="text" name="periodo_vac" placeholder="2026-2027" />
               </div>
               <div class="input-group" style="flex: 1">
                 <label>FECHA DE INICIO:</label>
-                <input type="date" name="vaca_inicio" />
+                <input type="date" name="vaca_inicio" class="pri-fecha" />
               </div>
               <div class="input-group" style="flex: 1">
                 <label>FECHA CULMINACIÓN:</label>
-                <input type="date" name="vaca_fin" />
+                <input type="date" name="vaca_fin" class="sec-fecha" />
               </div>
               <div class="input-group" style="flex: 1">
                 <label>FECHA INCORPORACIÓN:</label>
-                <input type="date" name="vaca_retorno" />
+                <input type="date" name="vaca_retorno" class="ter-fecha" />
               </div>
             </div>
             <div
@@ -316,6 +433,7 @@
                   type="number"
                   name="dias_disfrute"
                   placeholder="Ej: 25"
+                  readonly
                 />
               </div>
             </div>
@@ -332,9 +450,6 @@
         </form>
       </div>
     </div>
-    <a href="#modal-vacaciones-oficial" class="btn-solicitud"
-      >Nueva Solicitud Vacaciones (Oficial)</a
-    >
 
     <div id="modal-vacaciones-oficial" class="modal-master">
       <a href="#" class="modal-backdrop"></a>

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Gestión de Personal</title>
-
+    <script src="sources/js/validation.js"></script>
+    <script src="sources/js/validacion_fechas.js"></script>
     <link rel="stylesheet" href="sources/css/ges_styles.css" />
   </head>
 
@@ -36,7 +37,12 @@
     </a>
     <div class="search">
       <form>
-        <input type="text" class="searcher" placeholder="Buscar" />
+        <input
+          type="text"
+          class="searcher"
+          placeholder="Buscar"
+          maxlength="50"
+        />
 
         <select id="departament">
           <option disabled selected>Departamento</option>
@@ -99,7 +105,7 @@
           </h2>
         </div>
 
-        <form action="procesar_personal.php" method="POST">
+        <form action="#" method="POST">
           <div class="section-title">A. IDENTIFICACIÓN GENERAL</div>
 
           <div class="form-row">
@@ -120,6 +126,7 @@
                 name="cedula_identidad"
                 placeholder="V-00000000"
                 maxlength="11"
+                value="V-"
               />
             </div>
           </div>
@@ -127,7 +134,7 @@
           <div class="form-row">
             <div class="input-group" style="flex: 1">
               <label>FECHA DE NACIMIENTO:</label>
-              <input type="date" name="fecha_nacimiento" />
+              <input type="date" name="fecha_nacimiento" id="f-nac" />
             </div>
             <div class="input-group" style="flex: 1">
               <label>ESTADO CIVIL:</label>
@@ -181,7 +188,7 @@
             <div class="input-group" style="flex: 1.5">
               <label>DENOMINACIÓN DEL CARGO PROPUESTO:</label>
               <select name="select-cargo" id="cargo-select">
-                <option default disabled>Seleccione un cargo</option>
+                <option disabled selected>Seleccione un cargo</option>
                 <option value="tecnicoii">Tecnico II</option>
                 <option value="profesionaliii">Profesional III</option>
                 <option value="vigilante">Vigilante</option>
@@ -213,18 +220,62 @@
                 type="number"
                 name="tiempo_servicio_anos"
                 min="0"
+                max="100"
                 placeholder="0"
+                readonly
               />
             </div>
           </div>
 
-          <div class="input-group">
-            <label>UBICACIÓN ADMINISTRATIVA ASIGNADA:</label>
-            <input
-              type="text"
-              name="ubicacion_admin"
-              placeholder="Coordinación / División / Dirección de adscripción"
-            />
+          <div class="form-row">
+            <div class="input-group">
+              <label>UBICACIÓN ADMINISTRATIVA ASIGNADA:</label>
+              <select id="ubicacion_admin">
+                <option disabled selected>Seleccione una opción</option>
+                <option value="d-admin" disabled>
+                  División administrativa
+                </option>
+                <option value="coord-rh">Coordinación de gestion humana</option>
+                <option value="coord-ac">
+                  Coordinación de atención al ciudadano
+                </option>
+                <option value="coord-sg">
+                  Coordinación de servicios generales
+                </option>
+                <option value="div-mantenimiento" disabled>
+                  División de infraestructura y mantenimiento víal
+                </option>
+                <option value="coord-inf">
+                  Coordinaciónde infraestructura
+                </option>
+                <option value="coord-mant">
+                  Coordinación de mantenimiento vial
+                </option>
+                <option value="div-op" disabled>
+                  División de operaciones del sistema de transporte superficial
+                </option>
+                <option value="coord-seg">
+                  Coordinación de seguimiento y actualización de operaciones del
+                  sistema de transporte
+                </option>
+                <option value="coord-at">
+                  Coordinacion de atención al transportista
+                </option>
+              </select>
+            </div>
+            <div class="checkbox-ges-per" style="flex: 1">
+              <label
+                >EMPLEADO
+                <input
+                  type="radio"
+                  name="tipo_personal"
+                  value="empleado"
+                  checked
+              /></label>
+              <label
+                >OBRERO <input type="radio" name="tipo_personal" value="obrero"
+              /></label>
+            </div>
           </div>
 
           <button type="submit" class="confirm-btn">
