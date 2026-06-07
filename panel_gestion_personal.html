@@ -22,7 +22,7 @@
         <ul>
           <li><a href="home.html">Inicio</a></li>
           <li><a href="panel_reportes.html">Reportes</a></li>
-          <li><a href="#">Gestión</a></li>
+          <li><a href="#" id="here">Gestión</a></li>
           <li><a href="pendientes.html">pendientes</a></li>
         </ul>
       </nav>
@@ -31,10 +31,9 @@
       <h1>PANEL DE GESTIÓN DE PERSONAL</h1>
     </div>
 
-    <button class="add-employed">
+    <a href="#modal-gestion-personal" class="add-employed">
       <img src="sources/img/icon/plus_icon.png" alt="Añadir_empleado" />
-    </button>
-
+    </a>
     <div class="search">
       <form>
         <input type="text" class="searcher" placeholder="Buscar" />
@@ -81,6 +80,158 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div id="modal-gestion-personal" class="modal-master">
+      <<a href="#" class="modal-backdrop"></a>
+
+      <div class="modal-box master-mppt-personal">
+        <a href="#" class="close-x">&times;</a>
+
+        <div class="modal-header">
+          <h2
+            style="
+              font-size: 1.1rem;
+              border-bottom: 2px solid #ad1414;
+              padding-bottom: 10px;
+            "
+          >
+            REGISTRO DE PERSONAL (OFERTA DE SERVICIOS)
+          </h2>
+        </div>
+
+        <form action="procesar_personal.php" method="POST">
+          <div class="section-title">A. IDENTIFICACIÓN GENERAL</div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 2">
+              <label>APELLIDOS Y NOMBRES:</label>
+              <input
+                type="text"
+                name="apellidos_nombres"
+                placeholder="Nombre completo
+                "
+                maxlength="60"
+              />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>CÉDULA DE IDENTIDAD:</label>
+              <input
+                type="text"
+                name="cedula_identidad"
+                placeholder="V-00000000"
+                maxlength="11"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 1">
+              <label>FECHA DE NACIMIENTO:</label>
+              <input type="date" name="fecha_nacimiento" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>ESTADO CIVIL:</label>
+              <select name="estado_civil">
+                <option value="soltero">Soltero(a)</option>
+                <option value="casado">Casado(a)</option>
+                <option value="divorciado">Divorciado(a)</option>
+                <option value="viudo">Viudo(a)</option>
+              </select>
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>TELÉFONO DE CONTACTO:</label>
+              <input
+                type="text"
+                maxlength="13"
+                name="telefono"
+                placeholder="04XX-XXXXXXX"
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>DIRECCIÓN HABITACIONAL COMPLETA:</label>
+            <input
+              type="text"
+              name="direccion_hab"
+              placeholder="Calle, Sector, Municipio, Estado"
+            />
+          </div>
+
+          <div class="section-title">B. NIVEL EDUCATIVO Y CARGO</div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 1.5">
+              <label>ÚLTIMO NIVEL EDUCATIVO APROBADO:</label>
+              <select name="nivel_educativo">
+                <option value="primaria">Primaria</option>
+                <option value="media_general">
+                  Educación Media (Bachiller)
+                </option>
+                <option value="tsu">
+                  Técnico Superior Universitario (TSU)
+                </option>
+                <option value="universitario">
+                  Universitario / Ingeniero / Lic.
+                </option>
+                <option value="postgrado">Post-Grado / Maestría</option>
+              </select>
+            </div>
+
+            <div class="input-group" style="flex: 1.5">
+              <label>DENOMINACIÓN DEL CARGO PROPUESTO:</label>
+              <select name="select-cargo" id="cargo-select">
+                <option default disabled>Seleccione un cargo</option>
+                <option value="tecnicoii">Tecnico II</option>
+                <option value="profesionaliii">Profesional III</option>
+                <option value="vigilante">Vigilante</option>
+                <option value="auxiliar">
+                  Auxiliar de servicios de oficina
+                </option>
+                <option value="supervisor">
+                  Supervisor de servicios especializados
+                </option>
+                <option value="jefe">Jefe de division administrativa</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-title">C. DATOS DE INGRESO Y ANTIGÜEDAD</div>
+
+          <div class="form-row">
+            <div class="input-group" style="flex: 1">
+              <label>FECHA INGRESO ADM. PÚBLICA:</label>
+              <input type="date" name="ingreso_adm_publica" />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>FECHA INGRESO MPPT:</label>
+              <input type="date" name="ingreso_mppt" />
+            </div>
+            <div class="input-group" style="flex: 0.8">
+              <label>TIEMPO SERVICIO (AÑOS):</label>
+              <input
+                type="number"
+                name="tiempo_servicio_anos"
+                min="0"
+                placeholder="0"
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>UBICACIÓN ADMINISTRATIVA ASIGNADA:</label>
+            <input
+              type="text"
+              name="ubicacion_admin"
+              placeholder="Coordinación / División / Dirección de adscripción"
+            />
+          </div>
+
+          <button type="submit" class="confirm-btn">
+            REGISTRAR EN EL SISTEMA
+          </button>
+        </form>
+      </div>
     </div>
   </body>
 </html>

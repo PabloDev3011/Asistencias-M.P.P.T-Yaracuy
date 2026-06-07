@@ -83,6 +83,12 @@ ul {
   padding-left: 30px;
 }
 
+#here {
+  background-color: #ad1414;
+  font-size: 1.1rem;
+  padding-left: 30px;
+}
+
 .menu-toggle:checked ~ .menu {
   left: 0;
 }
@@ -98,7 +104,8 @@ ul {
 
 .head {
   position: absolute;
-  top: 14%;
+  top: 15%;
+  left: 15%;
   border-radius: 10px;
   background-color: #ad1414ef;
   text-align: center;
@@ -108,6 +115,11 @@ ul {
   justify-content: center;
   align-items: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.head h1 {
+  position: relative;
+  bottom: 10%;
 }
 
 .table {
@@ -206,7 +218,23 @@ tr:hover {
 
 .export:hover {
   transition: 0.3s;
-  transform: scale(1.1);
+  padding-left: 13%;
+}
+
+label[for="export-button"] {
+  position: fixed;
+  right: 18%;
+  bottom: 21%;
+  z-index: 100;
+  opacity: 0;
+  transform: scale(0.1);
+  cursor: pointer;
+}
+
+.export:hover ~ label[for="export-button"] {
+  opacity: 1;
+  transition: 0.3s;
+  transform: scale(1);
 }
 
 .table::-webkit-scrollbar {

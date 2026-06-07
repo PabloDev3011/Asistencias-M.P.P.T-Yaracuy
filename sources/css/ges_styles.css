@@ -108,6 +108,12 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+#here {
+  background-color: #ad1414;
+  font-size: 1.1rem;
+  padding-left: 30px;
+}
+
 .table {
   position: absolute;
   background-color: rgba(250, 250, 250, 0.925);
@@ -224,6 +230,8 @@ tr:hover {
 
 .add-employed img {
   position: relative;
+  left: 32%;
+  top: 28%;
   width: 35%;
   filter: invert(100%);
 }
@@ -243,4 +251,130 @@ tr:hover {
 .table::-webkit-scrollbar-thumb {
   background: #ad1414;
   border-radius: 10px;
+}
+.modal-master {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  z-index: 500;
+}
+
+.modal-master:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.modal-box {
+  position: relative;
+  background: #f7f3ee;
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 20px;
+  border-top: 8px solid #ad1414;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transform: scale(0.8);
+  transition: 0.1s;
+}
+
+.modal-master:target .modal-box {
+  transform: scale(1);
+}
+
+.modal-header {
+  text-align: center;
+  color: #ad1414;
+  margin-bottom: 20px;
+}
+.close-x {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #999;
+}
+.close-x:hover {
+  background-color: transparent !important;
+  color: #ad1414 !important;
+  transform: none !important;
+  transition: 0.3s;
+}
+
+.master-mppt-personal {
+  max-width: 750px !important;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.master-mppt-personal .form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  border-bottom: #ad1414;
+  color: #f7f3ee;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 6px 10px;
+  margin: 15px 0 10px 0;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.master-mppt-personal label {
+  font-size: 0.7rem !important;
+  color: #302a2a;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.master-mppt-personal input,
+.master-mppt-personal select {
+  border: 1px solid #bbb !important;
+  background-color: white !important;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.master-mppt-personal a:hover {
+  background-color: transparent !important;
+}
+
+.master-mppt-personal .confirm-btn {
+  background-color: #ad1414;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 5px;
+}
+
+.master-mppt-personal .confirm-btn:hover {
+  background-color: #ad1414;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }

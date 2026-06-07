@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="sources/css/log_styles.css" />
-    <script src="sources/js/validation.js"></script>
+    <script src="sources/js/validacion_usuario.js"></script>
     <title>Inicio de sesión MMPTY</title>
   </head>
 
@@ -14,7 +14,11 @@
       <h1>Inicio de sesión</h1>
 
       <div class="form">
-        <form action="home.html" name="login">
+        <form
+          action="home.html"
+          name="login"
+          onsubmit="return validar_usr(this);"
+        >
           <div class="user">
             <img src="sources/img/icon/user.png" alt="user" id="user-img" />
             <input
