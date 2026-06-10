@@ -25,7 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!validado) {
         e.preventDefault();
-        alert("Por favor, complete todos los campos obligatorios");
+        Swal.fire({
+          icon: "error",
+          title: "Por favor, complete todos los campos obligatorios",
+        });
         if (primerCampoVacio) primerCampoVacio.focus();
       }
     });

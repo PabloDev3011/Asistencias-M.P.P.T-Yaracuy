@@ -6,12 +6,18 @@ function validar_usr(obj) {
   let pass = obj.clave.value;
 
   if (usr != user) {
-    alert("Usuario incorrecto");
+    Swal.fire({
+      icon: "error",
+      title: "Usuario incorrecto",
+    });
     obj.usuario.focus();
     return false;
   }
   if (pass != password) {
-    alert("Clave incorrecta");
+    Swal.fire({
+      icon: "error",
+      title: "Clave incorrecta",
+    });
     obj.clave.focus();
     return false;
   }

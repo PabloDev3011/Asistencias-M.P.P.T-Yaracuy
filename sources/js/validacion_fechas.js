@@ -15,7 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (inputNacimiento) {
     inputNacimiento.addEventListener("blur", function () {
       if (this.value && calcularDiferenciaAnos(this.value) < 18) {
-        alert("La persona debe ser mayor de edad.");
+        swal.fire({
+          icon: "error",
+          text: "La persona debe ser mayor de edad.",
+        });
         this.value = "";
       }
     });
@@ -55,7 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const dateF = new Date(fin.value);
 
         if (dateF <= dateI) {
-          alert("La fecha de culminación debe ser mayor a la de inicio.");
+          swal.fire({
+            icon: "error",
+            tittle: "La fecha de culminación debe ser mayor a la de inicio.",
+          });
           fin.value = "";
           campoDias.value = "";
           return;
@@ -78,7 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const h = new Date(formPermisos.querySelector(".sec-fecha").value);
       if (h <= d) {
         e.preventDefault();
-        alert("Error: La fecha 'Hasta' debe ser posterior a 'Desde'.");
+        swal.fire({
+          icon: "error",
+          text: "Error: La fecha 'Hasta' debe ser posterior a 'Desde'.",
+        });
       }
     });
   }
